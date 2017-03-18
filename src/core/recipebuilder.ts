@@ -28,7 +28,6 @@ export class RecipeBuilder {
         this.itemIds = [];
         this.root = root;
         var treePromise = new Promise<IRecipeTree>((resolve, reject) => {
-            this.idList.push(root);
             this.nextItem().then(() => {
                 this.nextItemDetails().then(() => {
                     this.tree = {root: this.root, nodes: this.nodes, items: this.items};
@@ -59,7 +58,9 @@ export class RecipeBuilder {
                     if (value) {
                         node.children = [];
                         value.ingredients.forEach((ingredient:IIngredient) => {
-                            this.idList.push(ingredient.item_id);
+                            if (this.idList.indexOf(ingredient.item_id) === -1) {
+                                this.idList.push(ingredient.item_id);
+                            }
                             node.children.push(ingredient);
                         })
                     }
