@@ -61,7 +61,7 @@ export class DatabaseService {
         }
 
         var limit = (isNaN(params.limit) || params.limit <= 0)? 10 : params.limit;
-        var offset = (isNaN(params.page) || params.page <= 0)? 0 : (params.page - 1) * limit;
+        var offset = (isNaN(params.page) || params.page <= 1)? 0 : (params.page - 1) * limit;
         var qString = "select * from Items";
         var countString = "select count(*) as 'count' from Items";
         if (searchParts.length) {

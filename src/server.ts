@@ -15,7 +15,8 @@ var port = process.env.PORT || 1337;
 var router = express.Router();
 
 router.get("/", (req:express.Request, res: express.Response) => {
-    res.json({message: "yay! it works and stuff!"});
+    // TODO: Should include an API info page here.
+    res.json({message: "GW2 Crafting Utility API"});
 });
 
 app.use("/api", router);
@@ -24,4 +25,4 @@ var itemController = new ItemController(router);
 var recipeController = new RecipeController(router);
 
 app.listen(port);
-console.log("Magic happens on port " + port);
+console.log("Server running on port " + port);
