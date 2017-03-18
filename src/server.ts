@@ -1,11 +1,14 @@
 require("dotenv").config({path: "./config.env"});
 import * as express from "express";
 import * as bodyParser from "body-parser";
+import * as cors from "cors";
 
 import {ItemController} from "./controllers/itemcontroller";
 import {RecipeController} from "./controllers/recipecontroller";
 
 var app = express();
+app.use(cors());
+
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
