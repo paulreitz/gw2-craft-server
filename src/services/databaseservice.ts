@@ -57,7 +57,7 @@ export class DatabaseService {
             searchParts.push("rarity = '" + Constants.RARITIES[params.rarity] + "'");
         }
         if (!isNaN(params.min_level) && params.min_level > 0) {
-            searchParts.push("level > " + params.min_level);
+            searchParts.push("level >= " + params.min_level);
         }
 
         var limit = (isNaN(params.limit) || params.limit <= 0)? 10 : params.limit;
