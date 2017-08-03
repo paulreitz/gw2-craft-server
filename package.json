@@ -5,8 +5,9 @@
   "main": "server.js",
   "scripts": {
     "build:ci": "~/project/node_modules/typescript/bin/tsc",
-    "build": "node_modules/typescript/bin/tsc --p ./tsconfig.json",
-    "build:watch": "./node_modules/typescript/bin/tsc -w"
+    "build": "tsc",
+    "build:watch": "./node_modules/typescript/bin/tsc -w",
+    "tsc:version":"tsc -v"
   },
   "author": "Paul Reitz",
   "license": "ISC",
@@ -17,7 +18,7 @@
     "express": "^4.15.2",
     "mssql": "^3.3.0",
     "promise": "^7.1.1",
-    "typescript": "^2.4.2"
+    "typescript": "~2.2.2"
   },
   "devDependencies": {
     "@types/body-parser": "^1.16.0",
