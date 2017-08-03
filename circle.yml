@@ -10,4 +10,4 @@ jobs:
                 command: npm install
             - run:
                 name: run-build
-                command: npm run build
+                command: npm run build:ci
