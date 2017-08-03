@@ -4,9 +4,9 @@
   "description": "The server end of a utility to get the full tree and base material needed for crafting items in GW2.",
   "main": "server.js",
   "scripts": {
-    "build:ci":"~/project/node_modules/typescript/bin/tsc",
+    "build:ci": "~/project/node_modules/typescript/bin/tsc",
     "build": "node_modules/typescript/bin/tsc --p ./tsconfig.json",
-    "build:watch":"./node_modules/typescript/bin/tsc -w"
+    "build:watch": "./node_modules/typescript/bin/tsc -w"
   },
   "author": "Paul Reitz",
   "license": "ISC",
@@ -16,7 +16,8 @@
     "dotenv": "^4.0.0",
     "express": "^4.15.2",
     "mssql": "^3.3.0",
-    "promise": "^7.1.1"
+    "promise": "^7.1.1",
+    "typescript": "^2.4.2"
   },
   "devDependencies": {
     "@types/body-parser": "^1.16.0",
