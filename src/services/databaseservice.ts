@@ -13,7 +13,10 @@ export class DatabaseService {
         server: process.env.DB_HOST,
         database: process.env.DB_NAME,
         user: process.env.DB_USER,
-        password: process.env.DB_PSWRD
+        password: process.env.DB_PSWRD,
+        options: {
+            encrypt: true
+        }
     };
 
     public static getSingleItem(id: number): Promise.IThenable<IItem> {
@@ -69,6 +72,7 @@ export class DatabaseService {
             qString += " where " + queryParts;
             countString += " where " + queryParts;
         }
+        console.log(qString);
         qString += " order by id offset " + offset + " rows fetch next " + limit + " rows only";
         DatabaseService.getCount(countString);
         var itemsPromise = new Promise<IItemSearchResults>((resolve, reject) => {
@@ -76,6 +80,7 @@ export class DatabaseService {
             var request = new sql.Request(conn);
             conn.connect((err) => {
                 if (err) {
+                    console.log(err);
                     reject(err);
                     return;
                 }
@@ -114,6 +119,7 @@ export class DatabaseService {
             var request = new sql.Request(conn);
             conn.connect((err) => {
                 if (err) {
+                    console.log(err);
                     reject(err);
                     return;
                 }

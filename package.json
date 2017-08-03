@@ -4,7 +4,8 @@
   "description": "The server end of a utility to get the full tree and base material needed for crafting items in GW2.",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "build:watch":"tsc -w"
   },
   "author": "Paul Reitz",
   "license": "ISC",
