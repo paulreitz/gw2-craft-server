@@ -19,7 +19,7 @@ export class DatabaseService {
         }
     };
 
-    public static getSingleItem(id: number): Promises<IItem> {
+    public static getSingleItem(id: number): Promise<IItem> {
         var itemPromise = new Promise<IItem>((resolve, reject) => {
             var conn = new sql.Connection(DatabaseService.dbConfig);
             var request = new sql.Request(conn);
