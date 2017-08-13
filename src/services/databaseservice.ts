@@ -19,7 +19,7 @@ export class DatabaseService {
         }
     };
 
-    public static getSingleItem(id: number): Promise.IThenable<IItem> {
+    public static getSingleItem(id: number): Promise<IItem> {
         var itemPromise = new Promise<IItem>((resolve, reject) => {
             var conn = new sql.Connection(DatabaseService.dbConfig);
             var request = new sql.Request(conn);
@@ -48,7 +48,7 @@ export class DatabaseService {
         return itemPromise;
     }
 
-    public static getItems(params: IItemSearchParams): Promise.IThenable<IItemSearchResults> {
+    public static getItems(params: IItemSearchParams): Promise<IItemSearchResults> {
         var searchParts:Array<string> = [];
         if (!isNaN(params.type) && params.type >= 0 && params.type < Constants.TYPES.length) {
             searchParts.push("type = '" + Constants.TYPES[params.type] + "'");
@@ -113,7 +113,7 @@ export class DatabaseService {
         return itemsPromise;
     }
 
-    private static getCount(search): Promise.IThenable<number> {
+    private static getCount(search): Promise<number> {
         var countPromise = new Promise<number>((resolve, reject) => {
             var conn = new sql.Connection(DatabaseService.dbConfig);
             var request = new sql.Request(conn);
@@ -140,7 +140,7 @@ export class DatabaseService {
         return countPromise;
     }
 
-    public static getRecipeByItem(id:number) :Promise.IThenable<IRecipe> {
+    public static getRecipeByItem(id:number) :Promise<IRecipe> {
         var recipePromise = new Promise<IRecipe>((resolve, reject) => {
             var conn = new sql.Connection(DatabaseService.dbConfig);
             var request = new sql.Request(conn);

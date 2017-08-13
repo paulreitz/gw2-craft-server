@@ -21,7 +21,7 @@ export class RecipeBuilder {
 
     }
 
-    buildRecipeTree(root:number): Promise.IThenable<IRecipeTree> {
+    buildRecipeTree(root:number): Promise<IRecipeTree> {
         this.idList = [root];
         this.nodes = {};
         this.items = {};
@@ -45,7 +45,7 @@ export class RecipeBuilder {
         return treePromise;
     }
 
-    private nextItem():Promise.IThenable<any> {
+    private nextItem():Promise<any> {
         var itemPromise = new Promise<any>((resolve, reject) => {
             if (this.idList.length) {
                 var current = this.idList.pop();
@@ -80,7 +80,7 @@ export class RecipeBuilder {
         return itemPromise;
     }
 
-    private nextItemDetails():Promise.IThenable<any> {
+    private nextItemDetails():Promise<any> {
         var detailsPromise = new Promise<any>((resolve, reject) => {
             if (this.itemIds.length) {
                 var current = this.itemIds.pop();
